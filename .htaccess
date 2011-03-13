@@ -1,0 +1,5 @@
+Options +FollowSymLinks -Indexes -MultiViews
+RewriteEngine on
+#
+# Internally rewrite invite-coded URL requests to increment invites
+RewriteRule ^([\w\d]{4})$ index.php?code=$1 [L]

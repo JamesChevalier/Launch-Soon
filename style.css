@@ -1,0 +1,15 @@
+body {
+	background: white;
+	background-color: #ffffff;
+	background: -webkit-gradient(radial, center center, 0, center center, 2000, from(#ffffff), to(#2F2727));
+	background: -moz-radial-gradient(center 45deg, circle closest-corner, #ffffff 0%, #2F2727 200%);
+}
+h1 {
+	text-align: center;
+}
+#container {
+	width: 600px;
+	height: 200px;
+	margin: 5em auto 0 auto;
+	text-align: center;
+}
