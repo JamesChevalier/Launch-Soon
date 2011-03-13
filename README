@@ -1,0 +1,21 @@
+= Launch-Soon
+
+Launch Soon is a drop-in PHP framework that provides a viral launching soon page to collect users before the actual launch date.
+
+
+=== Pre-requisites
+
+* You need your own mysql database to be online and functional
+* The site is currently configured to use Google Analytics, so at the moment that's required
+* The site currently links out to Twitter, so at the moment a Twitter account for the site is required
+
+
+=== Configuration
+
+All configuration is done in the config.php file.
+
+
+=== More
+
+This is an early release, so there's still a bit of customization & design that hasn't been added in yet.
+This README will be updated alongside the framework itself.
