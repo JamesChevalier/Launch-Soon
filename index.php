@@ -23,15 +23,24 @@
 </script>
 </head>
 <body>
-	<h1><?php echo $sitetitle; ?></h1>
-	<div id="container"> 
+
+	<div id="top">
+	</div>
+
+	<div id="outer">
+
+		<h1><?php echo $sitetitle; ?></h1>
 		<p><?php echo $siteblurb; ?></p>
 		<form action="interested.php" method="post" id="collect">
 		<p><input type="text" size=50 name="email" id="email" value=""> <input type="submit" value="I'm Interested"></p>
 		<input type="hidden" name="uri" value="<?php echo $uri; ?>">
 		</form>
-		<p>We're sort of on <a href="http://twitter.com/<?php echo $twittername; ?>" target="_blank">Twitter</a></p> 
-		</form>
+		<p class="tiny">(We're sort of on <a href="http://twitter.com/<?php echo $twittername; ?>" target="_blank">Twitter</a>.)</p> 
+
 	</div>
+
+	<div id="bottom">
+	</div>
+
 </body>
 </html>
