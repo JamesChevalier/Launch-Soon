@@ -1,22 +1,25 @@
 = Launch-Soon
 
-Launch Soon is a drop-in PHP framework that provides a viral launching soon page to collect users before the actual launch date.
+Launch Soon is a drop-in PHP site that provides a viral launching soon page to collect users before your actual launch date.
+
+The site is fairly standard in that it's collecting email addresses, but it also provides a unique URL to each user which keeps track of how many people they get to sign up.
+
+This is an early release, so there's still a lot of customization that hasn't been added in yet.
 
 
 === Pre-requisites
 
-* You need your own mysql database to be online and functional
-- This database must have a table name 'interested', with fields 'id', 'email' (varchar(1000)?), 'hash' (varchar(8)?), and 'invites' (int(20)?) with the 'hash' field set as unique
-* The site is currently configured to use Google Analytics, so at the moment that's required
-* The site currently links out to Twitter, so at the moment a Twitter account for the site is required
+* You need your own mysql database to be online and functional with the following characteristics:
+- Table name 'interested'
+- Field 'id' (auto-increment)
+- Field 'email' (varchar(1000)?)
+- Field 'hash' (varchar(8)?)
+- Field 'invites' (int(20)?)
+- The 'hash' field must be set as unique
+* A Google Analytics Web Property ID (UA-#######-##) is required because Launch-Soon is currently hard-coded to use Google Analytics
+* A Twitter account is require because Launch-Soon is currently hard-coded to link out to Twitter & provides custom Tweet sharing
 
 
 === Configuration
 
-All configuration is done in the config.php file.
-
-
-=== More
-
-This is a VERY early release, so there's still a lot of fixes, customization & design that hasn't been added in yet.
-This README will be updated alongside the framework itself.
+All configuration is done in the config.php file.  You are not required to touch any other files.
