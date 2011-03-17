@@ -3,7 +3,7 @@
 	require "config.php";
 	$uri= mysql_real_escape_string($_GET["code"]); // Checks for 4-digit invite code in URI
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
 	<title><?php echo $sitetitle; ?></title>
