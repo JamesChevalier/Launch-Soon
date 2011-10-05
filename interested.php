@@ -14,7 +14,7 @@
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', '<?php echo $sitegoogleanalytics; ?>']);
 		_gaq.push(['_trackPageview']);
-		
+
 		(function() {
 			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -29,7 +29,7 @@
 	</div>
 
 	<div id="outer">
-	
+
 	<h1><a href="http://<?php echo $sitedomain; ?>"><?php echo $sitetitle; ?></a></h1>
 
 <?php
@@ -59,16 +59,16 @@
 				echo "You don't have any invites under your belt, yet.</p>";
 			}
 			echo "<p>The more friends you invite, the sooner you'll get access!<br>Copy/paste this URL below into Twitter, Facebook, or an email:</p><p><input type=text size=27 readonly onClick=select(); value=\"http://".$sitedomain."/".$existinghash."\"></p>";
-			echo "<p>Or use the buttons:<br><iframe src=\"http://www.facebook.com/plugins/like.php?href=http%3A%2F%2F".$sitedomain."%2F".$existinghash."&amp;layout=button_count&amp;show_faces=false&amp;width=150&amp;action=recommend&amp;font&amp;colorscheme=light&amp;height=20\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:150px; height:20px;\" allowTransparency=\"true\"></iframe> <a href=\"http://twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://".$sitedomain."/".$existinghash."\" data-text=\"I'm in line for @".$twittername."; ".$sitedescription."\" data-count=\"none\" data-via=\"".$sitetitle."\">Tweet</a><script type=\"text/javascript\" src=\"http://platform.twitter.com/widgets.js\"></script></p>";
+			echo "<p>Or use the buttons:<br><iframe src=\"http://www.facebook.com/plugins/like.php?href=http%3A%2F%2F".$sitedomain."%2F".$existinghash."&amp;layout=button_count&amp;show_faces=false&amp;width=150&amp;action=recommend&amp;font&amp;colorscheme=light&amp;height=20\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:150px; height:20px;\" allowTransparency=\"true\"></iframe> <a href=\"http://twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://".$sitedomain."/".$existinghash."\" data-text=\"I'm in line for @".$twittername."; ".$sitedescription."\" data-count=\"none\" data-via=\"".$sitetitle."\">Tweet</a><script type=\"text/javascript\" src=\"https://platform.twitter.com/widgets.js\"></script></p>";
 		}
 		elseif ($uri){
 			$updateinvites = mysql_query("UPDATE interested SET invites=invites+1 WHERE hash='$uri'") or die('oh noes!');
 			echo "<p>The more friends you invite, the sooner you'll get access!<br>Copy/paste this URL below into Twitter, Facebook, or an email:</p><p><input type=text size=27 readonly onClick=select(); value=\"http://".$sitedomain."/".$hashed."\"></p>";
-			echo "<p>Or use the buttons:<br><iframe src=\"http://www.facebook.com/plugins/like.php?href=http%3A%2F%2F".$sitedomain."%2F".$hashed."&amp;layout=button_count&amp;show_faces=false&amp;width=150&amp;action=recommend&amp;font&amp;colorscheme=light&amp;height=20\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:150px; height:20px;\" allowTransparency=\"true\"></iframe> <a href=\"http://twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://".$sitedomain."/".$hashed."\" data-text=\"I'm in line for @".$twittername."; ".$sitedescription."\" data-count=\"none\" data-via=\"".$sitetitle."\">Tweet</a><script type=\"text/javascript\" src=\"http://platform.twitter.com/widgets.js\"></script></p>";
+			echo "<p>Or use the buttons:<br><iframe src=\"http://www.facebook.com/plugins/like.php?href=http%3A%2F%2F".$sitedomain."%2F".$hashed."&amp;layout=button_count&amp;show_faces=false&amp;width=150&amp;action=recommend&amp;font&amp;colorscheme=light&amp;height=20\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:150px; height:20px;\" allowTransparency=\"true\"></iframe> <a href=\"http://twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://".$sitedomain."/".$hashed."\" data-text=\"I'm in line for @".$twittername."; ".$sitedescription."\" data-count=\"none\" data-via=\"".$sitetitle."\">Tweet</a><script type=\"text/javascript\" src=\"https://platform.twitter.com/widgets.js\"></script></p>";
 		}
 		else{
 			echo "<p>The more friends you invite, the sooner you'll get access!<br>Copy/paste this URL below into Twitter, Facebook, or an email:</p><p><input type=text size=27 readonly onClick=select(); value=\"http://".$sitedomain."/".$hashed."\"></p>";
-			echo "<p>Or use the buttons:<br><iframe src=\"http://www.facebook.com/plugins/like.php?href=http%3A%2F%2F".$sitedomain."%2F".$hashed."&amp;layout=button_count&amp;show_faces=false&amp;width=150&amp;action=recommend&amp;font&amp;colorscheme=light&amp;height=20\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:150px; height:20px;\" allowTransparency=\"true\"></iframe> <a href=\"http://twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://".$sitedomain."/".$hashed."\" data-text=\"I'm in line for @".$twittername."; ".$sitedescription."\" data-count=\"none\" data-via=\"".$sitetitle."\">Tweet</a><script type=\"text/javascript\" src=\"http://platform.twitter.com/widgets.js\"></script></p>";
+			echo "<p>Or use the buttons:<br><iframe src=\"http://www.facebook.com/plugins/like.php?href=http%3A%2F%2F".$sitedomain."%2F".$hashed."&amp;layout=button_count&amp;show_faces=false&amp;width=150&amp;action=recommend&amp;font&amp;colorscheme=light&amp;height=20\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:150px; height:20px;\" allowTransparency=\"true\"></iframe> <a href=\"http://twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://".$sitedomain."/".$hashed."\" data-text=\"I'm in line for @".$twittername."; ".$sitedescription."\" data-count=\"none\" data-via=\"".$sitetitle."\">Tweet</a><script type=\"text/javascript\" src=\"https://platform.twitter.com/widgets.js\"></script></p>";
 		}
 	}
 	else {

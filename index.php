@@ -14,7 +14,7 @@
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', '<?php echo $sitegoogleanalytics; ?>']);
 		_gaq.push(['_trackPageview']);
-		
+
 		(function() {
 			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
@@ -35,7 +35,7 @@
 		<p><input type="text" size=50 name="email" id="email" value=""> <input type="submit" value="I'm Interested"></p>
 		<input type="hidden" name="uri" value="<?php echo $uri; ?>">
 		</form>
-		<p class="tiny">(We're sort of on <a href="http://twitter.com/<?php echo $twittername; ?>" target="_blank">Twitter</a>.)</p> 
+		<p class="tiny">(We're sort of on <a href="http://twitter.com/<?php echo $twittername; ?>" target="_blank">Twitter</a>.)</p>
 
 	</div>
 
