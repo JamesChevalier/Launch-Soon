@@ -14,10 +14,17 @@ Pre-requisites
 * A Twitter account
 
 
-Configuration
--------------
+Deployment
+----------
 
-All configuration is done in the `app/controllers/application_controller.rb` file.  You are not required to touch any other files.
+1. Open Terminal
+2. Copy Launch Soon locally with `git clone git@github.com:JamesChevalier/Launch-Soon.git launchsoon`
+3. Change directory into Launch Soon with `cd launchsoon`
+4. Edit `app/controllers/application_controller.rb` accordingly
+5. Complete Mailchimp Setup (see below)
+6. Commit your configuration changes with `git add .; git commit -m "Update Config"`
+7. Create your Heroku app with `heroku create`
+8. Deploy Launch Soon to Heroku with `git push heroku master`
 
 Mailchimp Setup:
 
