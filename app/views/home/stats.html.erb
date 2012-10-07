@@ -1,0 +1,25 @@
+<div id="top">
+</div>
+
+<div id="outer">
+
+  <h1><a href="http://<%= @sitedomain %>"><%= @sitetitle %></a></h1>
+
+  <p>You've referred <strong><%= @referral_count %></strong> people so far.</p>
+
+  <p>
+    The more friends you invite, the sooner you'll get access!<br>Copy/paste this URL below into Twitter, Facebook, or an email:</p><p><input type=text size=27 readonly onClick=select() value="http://<%= @sitedomain %>/?ref=<%= @referral_code %>">
+  </p>
+  <p>
+    Or use the buttons:
+    <br />
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://<%= @sitedomain %>/?ref=<%= @referral_code %>" data-text="I'm in line for @<%= @twittername %> <%= @sitedescription %>" data-count="none" data-via="<%= @sitetitle %>">Tweet</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+    <br />
+    <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2F<%= @sitedomain %>%2F?ref=<%= @referral_code %>&amp;send=false&amp;layout=standard&amp;width=370&amp;show_faces=false&amp;action=recommend&amp;colorscheme=light&amp;font&amp;height=35&amp;appId=156645257810711" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:370px; height:35px;" allowTransparency="true"></iframe>
+  </p>
+
+  <p class="tiny">(We're sort of on <a href="http://twitter.com/<%= @twittername %>" target="_blank">Twitter</a>.)</p>
+
+</div>
+<div id="bottom">
+</div>

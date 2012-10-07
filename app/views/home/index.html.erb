@@ -1,0 +1,20 @@
+<div id="top">
+</div>
+
+<div id="outer">
+
+  <h1><%= @sitetitle %></h1>
+  <p><%= @siteblurb %></p>
+
+  <%= form_tag "/interested" do %>
+    <%= text_field_tag "email", nil, :placeholder => "Email address", :size => 50 %>
+    <%= hidden_field_tag :ref, "#{@ref}" %>
+    <%= submit_tag "I'm Interested" %>
+  <% end %>
+
+  <p class="tiny">(We're sort of on <a href="http://twitter.com/<%= @twittername %>" target="_blank">Twitter</a>.)</p>
+
+</div>
+
+<div id="bottom">
+</div>
