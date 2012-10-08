@@ -5,13 +5,13 @@ Launch Soon is a Heroku-ready rails site that provides a viral launching soon pa
 
 You can deploy to Heroku, and immediately begin collecting email addresses in your Mailchimp list. The site provides a unique URL to each user that signs up, which keeps track of how many people they refer. The referral count and code are also stored in your Mailchimp list, so that you can segment your users based on their referrals.
 
-You can see it at http://launch-soon-example.herokuapp.com but you can't actually use it, because I haven't set it up to be functional (yet).
+You can see an example at http://launch-soon-example.herokuapp.com
 
 
 What You'll Need
 --------------
 
-* A Mailchimp account with a list named "Interested"
+* A Mailchimp account with a list named "Interested" and a couple custom fields
 * A Google Analytics Web Property ID (UA-#######-##)
 * A Twitter account
 
