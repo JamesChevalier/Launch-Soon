@@ -52,7 +52,12 @@ class HomeController < ApplicationController
 
     # Add the email to Mailchimp, since it wasn't already in the list
     if @userpresent == false
-      h.list_subscribe(@list['id'], @email, {'RCODE' => @referral_code, 'RCOUNT' => 0}, 'text', false, true, true, false)
+      begin
+        h.list_subscribe(@list['id'], @email, {'RCODE' => @referral_code, 'RCOUNT' => 0}, 'text', false, true, true, false)
+      rescue Hominid::APIError => e
+        @error_message = e
+        render :action => "index"
+      end
     end
   end
 
