@@ -7,7 +7,7 @@
   <p><%= @siteblurb %></p>
 
   <%= form_tag "/interested" do %>
-    <%= text_field_tag "email", nil, :placeholder => "Email address", :size => 50 %>
+    <%= email_field_tag "email", nil, :placeholder => "Email address", :size => 50 %>
     <%= hidden_field_tag :ref, "#{@ref}" %>
     <%= submit_tag "I'm Interested" %>
   <% end %>
