@@ -1,20 +1,24 @@
-<div id="top">
-</div>
+<div class="row">
+  <div class="seven mobile-four columns centered">
+    <div class="panel" style="margin-top:50px;">
+      <h1 style="text-align:center;"><%= @sitetitle %></h1>
+      <h4 class="subheader" ><%= @siteblurb %></h4>
 
-<div id="outer">
+      <p style="text-align:center;"><em>Enter your email to sign up for our mailing list:</em></p>
 
-  <h1><%= @sitetitle %></h1>
-  <p><%= @siteblurb %></p>
+      <div class="row collapse">
+        <%= form_tag "/interested" do %>
+        <div class="nine mobile-three columns">
+          <%= email_field_tag "email", nil, :placeholder => "Email address" %>
+        </div>
+        <%= hidden_field_tag :ref, "#{@ref}" %>
+        <div class="three mobile-one columns">
+          <%= submit_tag "Yes!", :class => "postfix button expand" %>
+        </div>
+        <% end %>
+      </div>
 
-  <%= form_tag "/interested" do %>
-    <%= email_field_tag "email", nil, :placeholder => "Email address", :size => 50 %>
-    <%= hidden_field_tag :ref, "#{@ref}" %>
-    <%= submit_tag "I'm Interested" %>
-  <% end %>
-
-  <p class="tiny">(We're sort of on <a href="http://twitter.com/<%= @twittername %>" target="_blank">Twitter</a>.)</p>
-
-</div>
-
-<div id="bottom">
+      <h6 class="subheader" style="text-align:center;">(We're sort of on <a href="http://twitter.com/<%= @twittername %>" target="_blank">Twitter</a>.)</h6>
+    </div>
+  </div>
 </div>
