@@ -41,7 +41,8 @@ How To Get It Going
 1. Edit `app/controllers/application_controller.rb` accordingly
 2. Optionally, replace `app/assets/images/background.jpg` with your own background image
  * Make sure your background image has the same filename, `background.jpg`
- * Your image should be fairly large, to accommodate any size screen. Something like 1280 × 800 should do.
+ * Your image should be fairly large (like 1280x800) to accommodate any size screen
+3. Optionally, replace `public/favicon.ico` with your own Favicon file
 
 ###Deploy it
 1. Commit your configuration changes with `git add .; git commit -m "Update Config"`
