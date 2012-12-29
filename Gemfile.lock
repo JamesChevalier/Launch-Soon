@@ -61,7 +61,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
-    modular-scale (1.0.2)
+    modular-scale (1.0.3)
       compass (>= 0.11.5)
       sassy-math (>= 1.2)
     multi_json (1.5.0)
