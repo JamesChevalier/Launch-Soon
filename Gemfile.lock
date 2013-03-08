@@ -130,4 +130,4 @@ DEPENDENCIES
   rails (= 3.2.12)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
-  zurb-foundation
+  zurb-foundation (= 3.2.5)
