@@ -1,6 +1,8 @@
 Launch-Soon
 ===========
 
+[![Code Climate](https://codeclimate.com/github/JamesChevalier/Launch-Soon.png)](https://codeclimate.com/github/JamesChevalier/Launch-Soon)
+
 Launch-Soon is a Heroku-ready rails site that provides a viral launching soon page to collect users before your actual launch date.
 
 You can deploy to Heroku, and immediately begin collecting email addresses in your MailChimp list. The site provides a unique URL to each user that signs up, which keeps track of how many people they refer. The referral count and code are also stored in your MailChimp list, so that you can segment your users based on their referrals.
