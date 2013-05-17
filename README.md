@@ -1,7 +1,7 @@
 Launch-Soon
 ===========
 
-[![Code Climate](https://codeclimate.com/github/JamesChevalier/Launch-Soon.png)](https://codeclimate.com/github/JamesChevalier/Launch-Soon)
+[![Code Climate](https://codeclimate.com/github/JamesChevalier/Launch-Soon.png)](https://codeclimate.com/github/JamesChevalier/Launch-Soon) [![Build Status](https://travis-ci.org/JamesChevalier/Launch-Soon.png?branch=master)](https://travis-ci.org/JamesChevalier/Launch-Soon)
 
 Launch-Soon is a Heroku-ready rails site that provides a viral launching soon page to collect users before your actual launch date.
 
