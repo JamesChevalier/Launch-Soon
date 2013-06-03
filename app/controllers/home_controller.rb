@@ -45,7 +45,7 @@ class HomeController < ApplicationController
         @referral_count = returning_member_info['data'][0]['merges']['RCOUNT']
         @referral_code = returning_member_info['data'][0]['merges']['RCODE']
         @userpresent = true
-        render :action => "stats"
+        render :stats
         break
       end
     end
@@ -56,7 +56,7 @@ class HomeController < ApplicationController
         h.list_subscribe(@list['id'], @email, {'RCODE' => @referral_code, 'RCOUNT' => 0}, 'text', false, true, true, false)
       rescue Hominid::APIError => e
         @error_message = e
-        render :action => "index"
+        render :index
       end
     end
   end
