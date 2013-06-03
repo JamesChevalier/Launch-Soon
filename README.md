@@ -13,7 +13,7 @@ You can see an example at http://launch-soon-example.herokuapp.com
 
 
 What You'll Need
---------------
+----------------
 
 * A MailChimp account with a list named "Interested" and a couple custom fields
 * A Google Analytics Web Property ID (UA-#######-##)
@@ -21,7 +21,7 @@ What You'll Need
 
 
 How To Get It Going
-----------
+-------------------
 
 ###Get the code
 1. Open Terminal
@@ -51,3 +51,8 @@ How To Get It Going
 2. Create your Heroku app with `heroku create`
 3. Deploy Launch-Soon to Heroku with `git push heroku master`
 
+
+Other Info
+----------
+
+Check out the `doc/README_FOR_APP.md` file for more information.
