@@ -17,7 +17,7 @@ class HomeController < ApplicationController
     end
 
     # Connect to Mailchimp
-    h = Hominid::API.new(@mailchimp_api_key)
+    h = Hominid::API.new(MAILCHIMP_API_KEY)
 
     # Get the 'Interested' mailing list
     @list = h.find_list_by_name('Interested')
