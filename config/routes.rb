@@ -1,7 +1,6 @@
 LaunchSoon::Application.routes.draw do
   root :to => "home#index"
   match '/interested' => "home#interested"
-  match '/stats' => "home#stats"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
