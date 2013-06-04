@@ -4,21 +4,35 @@
       <h1 style="text-align:center;"><%= SITE_TITLE %></h1>
       <h4 class="subheader" ><%= raw SITE_BLURB %></h4>
 
-      <p style="text-align:center;"><em>Enter your email to sign up for our mailing list:</em></p>
+      <p style="text-align:center;">
+        <em>Enter your email to sign up for our mailing list:</em>
+      </p>
 
       <div class="row collapse">
         <%= form_tag "/interested" do %>
-        <div class="nine mobile-three columns">
-          <%= email_field_tag "email", nil, :placeholder => "Email address" %>
-        </div>
-        <%= hidden_field_tag :ref, "#{@ref}" %>
-        <div class="three mobile-one columns">
-          <%= submit_tag "Yes!", :class => "postfix button expand" %>
-        </div>
+          <div class="nine mobile-three columns">
+            <%= email_field_tag "email", nil, :placeholder => "Email address" %>
+          </div>
+          <%= hidden_field_tag :ref, "#{@ref}" %>
+          <div class="three mobile-one columns">
+            <%= submit_tag "Yes!", :class => "postfix button expand" %>
+          </div>
         <% end %>
       </div>
 
-      <h6 class="subheader" style="text-align:center;">(We're sort of on <a href="http://twitter.com/<%= TWITTER_NAME %>" target="_blank">Twitter</a>.)</h6>
+      <h6 class="subheader" style="text-align:center;">
+        (We're sort of on <a href="http://twitter.com/<%= TWITTER_NAME %>" target="_blank">Twitter</a>.)
+      </h6>
     </div>
   </div>
 </div>
+
+<% unless alert.blank? %>
+  <div class="row">
+    <div class="five mobile-four columns centered">
+      <div class="radius alert-box alert">
+        <%= alert %>
+      </div>
+    </div>
+  </div>
+<% end %>
