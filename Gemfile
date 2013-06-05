@@ -36,5 +36,6 @@ group :test do
   gem 'spork'
 end
 
+gem 'coveralls', require: false
 gem 'hominid'
 gem 'jquery-rails'
