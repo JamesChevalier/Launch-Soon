@@ -146,6 +146,8 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -270,6 +272,7 @@ DEPENDENCIES
   hominid
   jquery-rails
   launchy
+  quiet_assets
   rails (= 3.2.13)
   rails_best_practices
   rb-fsevent (~> 0.9.1)
