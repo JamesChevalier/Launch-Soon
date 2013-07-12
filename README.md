@@ -42,11 +42,12 @@ How To Get It Going
  * Change `Last Name` to `Referral Count`, and change `LNAME` to `RCOUNT`
 
 ###Configure Launch-Soon
-1. Edit `config/initializers/launch_soon.rb` accordingly
-2. Optionally, replace `app/assets/images/background.jpg` with your own background image
+1. Run `rake secret` and replace the secret_token in `config/initializers/secret_token.rb` with the result of this command
+2. Edit `config/initializers/launch_soon.rb` accordingly
+3. Optionally, replace `app/assets/images/background.jpg` with your own background image
  * Make sure your background image has the same filename, `background.jpg`
  * Your image should be fairly large (like 1280x800) to accommodate any size screen
-3. Optionally, replace `public/favicon.ico` with your own Favicon file
+4. Optionally, replace `public/favicon.ico` with your own Favicon file
 
 ###Deploy it
 1. Commit your configuration changes with `git add .; git commit -m "Update Config"`
