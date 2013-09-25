@@ -41,3 +41,4 @@ end
 gem 'coveralls', require: false
 gem 'hominid'
 gem 'jquery-rails'
+gem 'rails', '3.2.14'
