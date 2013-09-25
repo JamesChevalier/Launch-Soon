@@ -1,22 +1,16 @@
 <div class="row">
-  <div class="seven mobile-four columns centered">
-    <div class="panel" style="margin-top:50px;">
+  <div class="large-7 small-12 columns large-centered">
+    <div class="radius panel" style="margin-top:50px;">
       <h1 style="text-align:center;"><%= SITE_TITLE %></h1>
       <h4 class="subheader" ><%= raw SITE_BLURB %></h4>
 
-      <p style="text-align:center;">
-        <em>Enter your email to sign up for our mailing list:</em>
-      </p>
+      <p style="text-align:center;"><em>Enter your email to sign up for our mailing list:</em></p>
 
       <div class="row collapse">
-        <%= form_tag "/interested" do %>
-          <div class="nine mobile-three columns">
-            <%= email_field_tag "email", nil, :placeholder => "Email address" %>
-          </div>
+        <%= form_tag '/interested' do %>
+          <div class="large-9 small-10 columns"><%= email_field_tag 'email', nil, placeholder: 'Email address' %></div>
+          <div class="large-3 small-2 columns"><%= submit_tag 'Yes!', class: 'postfix radius button' %></div>
           <%= hidden_field_tag :ref, "#{@ref}" %>
-          <div class="three mobile-one columns">
-            <%= submit_tag "Yes!", :class => "postfix button expand" %>
-          </div>
         <% end %>
       </div>
 
@@ -29,8 +23,8 @@
 
 <% unless alert.blank? %>
   <div class="row">
-    <div class="five mobile-four columns centered">
-      <div class="radius alert-box alert">
+    <div class="large-5 small-12 columns large-centered">
+      <div data-alert class="alert-box radius">
         <%= alert %>
       </div>
     </div>
