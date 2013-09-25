@@ -23,6 +23,7 @@ group :development do
   gem 'bundler-audit'
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'quiet_assets'
+  gem 'rubocop'
   gem 'ruby_gntp' # also install growlnotify from the Extras/growlnotify/growlnotify.pkg in Growl disk image
   gem 'rails_best_practices'
 end
