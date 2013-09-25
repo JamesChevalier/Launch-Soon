@@ -1,0 +1,11 @@
+Documentation:
+  Enabled: false
+
+EmptyLines:
+  Enabled: false
+
+Encoding:
+  Enabled: false
+
+LineLength:
+  Max: 125
