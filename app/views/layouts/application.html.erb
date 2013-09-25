@@ -3,41 +3,39 @@
 <!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8" />
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
 
-  <!-- Uncomment to make IE8 render like IE7 -->
-  <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+    <!-- Uncomment to make IE8 render like IE7 -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
 
-  <!-- Set the viewport width to device width for mobile -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
-  <title><%= SITE_TITLE %></title>
-  <meta name="keywords" content="<%= SITE_KEYWORDS %>"/>
-  <meta name="description" content="<%= SITE_DESCRIPTION %>"/>
+    <title><%= SITE_TITLE %></title>
+    <meta name="keywords" content="<%= SITE_KEYWORDS %>"/>
+    <meta name="description" content="<%= SITE_DESCRIPTION %>"/>
 
-  <!-- Included CSS Files -->
-  <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= csrf_meta_tags %>
 
-  <!-- Included JS Files  -->
-  <%= javascript_include_tag "application" %>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '<%= SITE_GOOGLE_ANALYTICS %>']);
+      _gaq.push(['_trackPageview']);
 
-  <%= csrf_meta_tags %>
-
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '<%= SITE_GOOGLE_ANALYTICS %>']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-</head>
-<body>
-  <%= yield %>
-</body>
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
+  <body>
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
