@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    @ref = params["ref"]
+    @ref = params['ref']
   end
 
   def interested
@@ -13,7 +13,7 @@ class HomeController < ApplicationController
     begin
       h            = Hominid::API.new(MAILCHIMP_API_KEY)
     rescue => e
-      flash.now[:alert] = "There was a problem connecting to MailChimp"
+      flash.now[:alert] = 'There was a problem connecting to MailChimp'
       return render :index
     end
 
@@ -47,10 +47,10 @@ class HomeController < ApplicationController
       end
       # There was no referral, so just add the email to Mailhcimp
       begin
-        h.list_subscribe(list['id'], email, {'RCODE' => @referral_code, 'RCOUNT' => 0}, 'text', false, true, true, false)
+        h.list_subscribe(list['id'], email, { 'RCODE' => @referral_code, 'RCOUNT' => 0 }, 'text', false, true, true, false)
       rescue => e
         flash.now[:alert] = "There was a problem adding #{email}"
-        render :index
+        render :index && return
       end
     end
   end
