@@ -86,6 +86,7 @@ GEM
     debug_inspector (0.0.2)
     diff-lcs (1.2.4)
     erubis (2.7.0)
+    excon (0.26.0)
     execjs (2.0.1)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
@@ -111,7 +112,6 @@ GEM
       tilt
     highline (1.6.19)
     hike (1.2.3)
-    hominid (3.0.5)
     i18n (0.6.5)
     journey (1.0.4)
     jquery-rails (3.0.4)
@@ -127,6 +127,9 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mailchimp-api (2.0.3)
+      excon (>= 0.16.0)
+      json (>= 1.7.7)
     mime-types (1.25)
     mini_portile (0.5.1)
     multi_json (1.8.0)
@@ -265,9 +268,9 @@ DEPENDENCIES
   faker
   guard-rspec
   guard-spork
-  hominid
   jquery-rails
   launchy
+  mailchimp-api
   quiet_assets
   rails (= 3.2.14)
   rails_best_practices

@@ -37,6 +37,6 @@ group :test do
 end
 
 gem 'coveralls', require: false
-gem 'hominid'
 gem 'jquery-rails'
+gem 'mailchimp-api'
 gem 'rails', '3.2.14'
