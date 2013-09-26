@@ -34,10 +34,14 @@ How To Get It Going
 1. Get your MailChimp API Key by clicking the `Add A Key` button at https://admin.mailchimp.com/account/api/ and copying the key out of the `API Key` column
 2. Go to https://admin.mailchimp.com/lists/
 3. Click the `Create List` button
-4. Name the list `Interested` (the rest of the information is up to you)
-5. Back at https://admin.mailchimp.com/lists/, click the Settings button for on the far right for the 'Interested' list
-6. Select `List Fields and Merge Tags`
-7. Change Field Labels to read:
+4. Name the list anything you'd like, and the rest of the information is up to you as well
+5. Go back to https://admin.mailchimp.com/lists/, and select `Settings` from the List's pulldown on the far right
+6. Select `List name & defaults`
+7. Copy the `List ID` that's at the top of the right column
+8. Paste this text into the quotes for "MAILCHIMP_LIST_ID" within the `config/initializers/launch_soon.rb` file
+9. Go back to https://admin.mailchimp.com/lists/, and select `Settings` from the List's pulldown on the far right
+10. Select `List fields and *|MERGE|* tags`
+11. Change Field Labels to read:
  * Change `First Name` to `Referral Code`, and change `FNAME` to `RCODE`
  * Change `Last Name` to `Referral Count`, and change `LNAME` to `RCOUNT`
 
