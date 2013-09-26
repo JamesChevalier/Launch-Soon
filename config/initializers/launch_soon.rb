@@ -1,6 +1,9 @@
 # Mailchimp API Key
 MAILCHIMP_API_KEY = 'API_KEY'
 
+# Mailchimp Mailing List ID
+MAILCHIMP_LIST_ID = 'LIST_ID'
+
 # This site's domain name, including the www. if required (ie: google.com):
 SITE_DOMAIN = 'DOMAIN.TLD'
 
