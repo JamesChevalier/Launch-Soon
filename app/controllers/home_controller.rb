@@ -4,63 +4,58 @@ class HomeController < ApplicationController
     @ref = params['ref']
   end
 
+
   def interested
+    require 'mailchimp'
     require 'digest'
+
     return redirect_to root_url if params['email'].blank?
+
     @ref           = params['ref']
     email          = params['email']
     @referral_code = Digest::MD5.hexdigest(email)
+
     begin
-      h            = Hominid::API.new(MAILCHIMP_API_KEY)
+      mailchimp = Mailchimp::API.new(MAILCHIMP_API_KEY)
     rescue => e
       flash.now[:alert] = 'There was a problem connecting to MailChimp'
       return render :index
     end
 
-    list          = h.find_list_by_name('Interested')
-    list_members  = h.list_members(list['id']) if list
+    begin
+      user_info = mailchimp.lists.member_info(MAILCHIMP_LIST_ID, ['email' => "#{email}"])
+    rescue => e
+      flash.now[:alert] = 'There was a problem getting info on this email address from MailChimp'
+      return render :index
+    end
 
-    # If email exists in the list, then render their stats page
-    # Or, if a referral code is present, increment RCODE for the referring user then sign up the new user
-    # Otherwise, just sign up the new user
-    if list_members['total'] > 0
-      list_members['data'].group_by { |u| u['email'] }.keys.in_groups_of(50, false).each do |users|
-        members_info = h.list_member_info(list['id'], users)
-        members_info['data'].each do |member_info|
-          if member_info['email'] == email
-            @referral_count       = member_info['merges']['RCOUNT']
-            @referral_code        = member_info['merges']['RCODE']
-            render :stats && return
-            break
-          elsif member_info['merges']['RCODE'] == @ref
-            # There was a referral, so increment that and add the email to Mailchimp
-            referral_count = member_info['merges']['RCOUNT']
-            updated_count  = referral_count.to_i + 1
-            h.list_update_member(list['id'], member_info['email'], { 'RCOUNT' => updated_count })
+    if user_info['errors'].any?
+      user_info['errors'].each do |e|
+        if e['code'] == 232 # The user is not in the list
+          unless @ref.blank? # Increment RCOUNT for referrer if referral code is present
             begin
-              h.list_subscribe(list['id'], email, { 'RCODE' => @referral_code, 'RCOUNT' => 0 }, 'text', false, true, true, false)
+              list_members     = mailchimp.lists.members("#{MAILCHIMP_LIST_ID}")
+              referring_member = list_members['data'].detect{ |m| m['merges']['RCODE'] == "#{@ref}" }
+              new_count        = referring_member['merges']['RCOUNT'] + 1
+              mailchimp.lists.update_member("#{MAILCHIMP_LIST_ID}", {"euid" => "#{referring_member['id']}"}, 'RCOUNT' => "1")
             rescue => e
-              flash.now[:alert] = "There was a problem adding #{email}"
-              render :index && return
+              flash.now[:alert] = 'There was a problem updating the referral at MailChimp'
+              return render :index
             end
-            break
+          end
+
+          begin
+            mailchimp.lists.subscribe("#{MAILCHIMP_LIST_ID}", {"email" => "#{email}"}, {'RCODE' => "#{@referral_code}", 'RCOUNT' => "0"})
+          rescue => e
+            flash.now[:alert] = 'There was a problem subscribing you to the list on MailChimp'
+            return render :index
           end
         end
-        # There was no referral, so just add the email to Mailhcimp
-        begin
-          h.list_subscribe(list['id'], email, { 'RCODE' => @referral_code, 'RCOUNT' => 0 }, 'text', false, true, true, false)
-        rescue => e
-          flash.now[:alert] = "There was a problem adding #{email}"
-          render :index
-        end
       end
-    else
-      begin
-        h.list_subscribe(list['id'], email, { 'RCODE' => @referral_code, 'RCOUNT' => 0 }, 'text', false, true, true, false)
-      rescue => e
-        flash.now[:alert] = "There was a problem adding #{email}"
-        render :index && return
-      end
+    else # The user is in the list
+      @rcount = user_info['data'][0]['merges']['RCOUNT']
+      @rcode  = user_info['data'][0]['merges']['RCODE']
+      return render :stats
     end
   end
 end
