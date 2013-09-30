@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+# For testing that this file gets loaded
+$metric_file_loaded = true
+
+MetricFu::Configuration.run do |config|
+  config.configure_metric(:cane) do |cane|
+    cane.enabled     = true
+    # cane.abc_max     = 15
+    cane.line_length = 125
+    # cane.no_doc      = 'y'
+    # cane.no_readme   = 'y'
+  end
+
+  config.configure_metric(:rcov) do |rcov|
+    rcov.enabled  = true
+    coverage_file = File.expand_path("coverage/rcov/rcov.txt", Dir.pwd)
+    rcov.external = coverage_file
+  end
+end
