@@ -12,6 +12,7 @@ group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'zonebie'
 end
 
 group :development do
@@ -19,11 +20,11 @@ group :development do
   gem 'binding_of_caller'
   gem 'brakeman'
   gem 'bundler-audit'
+  gem 'metric_fu'
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'quiet_assets'
   gem 'rubocop'
   gem 'ruby_gntp' # also install growlnotify from the Extras/growlnotify/growlnotify.pkg in Growl disk image
-  gem 'rails_best_practices'
 end
 
 group :test do
@@ -33,6 +34,7 @@ group :test do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'simplecov-rcov-text', require: false
   gem 'spork'
 end
 

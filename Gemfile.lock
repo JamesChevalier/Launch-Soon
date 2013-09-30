@@ -30,6 +30,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.5)
     arel (3.0.2)
+    arrayfields (4.9.0)
     ast (1.1.0)
     awesome_print (1.2.0)
     better_errors (1.0.1)
@@ -37,6 +38,7 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bluff (0.1.0)
     brakeman (2.1.2)
       erubis (~> 2.6)
       fastercsv (~> 1.5)
@@ -51,6 +53,8 @@ GEM
     builder (3.0.4)
     bundler-audit (0.2.0)
       bundler (~> 1.2)
+    cane (2.6.0)
+      parallel
     capybara (2.1.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -59,9 +63,18 @@ GEM
       xpath (~> 2.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
+    chronic (0.10.2)
     chunky_png (1.2.8)
-    code_analyzer (0.4.2)
+    churn (0.0.34)
+      chronic (>= 0.2.3)
+      hirb
+      json_pure
+      main
+      ruby_parser (~> 3.0)
+      sexp_processor (~> 4.1)
+    code_analyzer (0.4.3)
       sexp_processor
+    code_metrics (0.1.1)
     coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -96,7 +109,14 @@ GEM
     faker (1.2.0)
       i18n (~> 0.5)
     fastercsv (1.5.5)
+    fattr (2.2.1)
     ffi (1.9.0)
+    flay (2.4.0)
+      ruby_parser (~> 3.0)
+      sexp_processor (~> 4.0)
+    flog (4.1.2)
+      ruby_parser (~> 3.1, > 3.1.0)
+      sexp_processor (~> 4.0)
     fssm (0.2.10)
     guard (1.4.0)
       listen (>= 0.4.2)
@@ -112,12 +132,14 @@ GEM
       tilt
     highline (1.6.19)
     hike (1.2.3)
+    hirb (0.7.1)
     i18n (0.6.5)
     journey (1.0.4)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.0)
+    json_pure (1.8.0)
     launchy (2.3.0)
       addressable (~> 2.3)
     listen (1.3.1)
@@ -130,11 +152,33 @@ GEM
     mailchimp-api (2.0.3)
       excon (>= 0.16.0)
       json (>= 1.7.7)
+    main (5.2.0)
+      arrayfields (>= 4.7.4)
+      chronic (>= 0.6.2)
+      fattr (>= 2.2.0)
+      map (>= 5.1.0)
+    map (6.5.1)
+    metric_fu (4.4.4)
+      bluff
+      cane (~> 2.5, >= 2.5.2)
+      churn (~> 0.0.28)
+      code_metrics (~> 0.1)
+      coderay
+      flay (~> 2.1, >= 2.0.1)
+      flog (~> 4.1, >= 4.1.1)
+      metric_fu-Saikuro (>= 1.1.1.0)
+      multi_json
+      rails_best_practices (~> 1.14, >= 1.14.3)
+      redcard
+      reek (~> 1.3, >= 1.3.3)
+      roodi (~> 3.1)
+    metric_fu-Saikuro (1.1.1.0)
     mime-types (1.25)
     mini_portile (0.5.1)
     multi_json (1.8.0)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    parallel (0.8.4)
     parser (2.0.0.pre8)
       ast (~> 1.1)
       slop (~> 3.4, >= 3.4.5)
@@ -157,10 +201,10 @@ GEM
       activesupport (= 3.2.14)
       bundler (~> 1.0)
       railties (= 3.2.14)
-    rails_best_practices (1.14.3)
+    rails_best_practices (1.14.4)
       activesupport
       awesome_print
-      code_analyzer (>= 0.4.2)
+      code_analyzer (>= 0.4.3)
       colored
       erubis
       i18n
@@ -182,9 +226,16 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcard (1.1.0)
+    reek (1.3.3)
+      ruby2ruby (~> 2.0.2)
+      ruby_parser (~> 3.1, >= 3.1.1)
+      sexp_processor
     require_all (1.3.1)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    roodi (3.1.1)
+      ruby_parser (~> 3.2, >= 3.2.2)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -223,6 +274,7 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
+    simplecov-rcov-text (0.0.2)
     slim (2.0.1)
       temple (~> 0.6.6)
       tilt (>= 1.3.3, < 2.1)
@@ -249,6 +301,7 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
+    zonebie (0.5.1)
     zurb-foundation (4.3.2)
       sass (>= 3.2.0)
 
@@ -271,9 +324,9 @@ DEPENDENCIES
   jquery-rails
   launchy
   mailchimp-api
+  metric_fu
   quiet_assets
   rails (= 3.2.14)
-  rails_best_practices
   rb-fsevent (~> 0.9.1)
   rspec-rails
   rubocop
@@ -281,6 +334,8 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   shoulda-matchers
   simplecov
+  simplecov-rcov-text
   spork
   uglifier (>= 1.0.3)
+  zonebie
   zurb-foundation
