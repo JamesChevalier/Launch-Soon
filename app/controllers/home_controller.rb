@@ -31,12 +31,12 @@ class HomeController < ApplicationController
     end
 
     if user_info['errors'].any?
-      user_info['errors'].each do |e|
-        if e['code'] == 232 # The user is not in the list
+      user_info['errors'].each do |error|
+        if error['code'] == 232 # The user is not in the list
           unless @ref.blank? # Increment RCOUNT for referrer if referral code is present
             begin
               list_members     = mailchimp.lists.members("#{MAILCHIMP_LIST_ID}")
-              referring_member = list_members['data'].detect{ |m| m['merges']['RCODE'] == "#{@ref}" }
+              referring_member = list_members['data'].detect{ |member| member['merges']['RCODE'] == "#{@ref}" }
               new_count        = referring_member['merges']['RCOUNT'] + 1
               mailchimp.lists.update_member("#{MAILCHIMP_LIST_ID}", {"euid" => "#{referring_member['id']}"}, 'RCOUNT' => "1")
             rescue => e
@@ -46,7 +46,9 @@ class HomeController < ApplicationController
           end
 
           begin
-            mailchimp.lists.subscribe("#{MAILCHIMP_LIST_ID}", {"email" => "#{email}"}, {'RCODE' => "#{@referral_code}", 'RCOUNT' => "0"})
+            mailchimp.lists.subscribe("#{MAILCHIMP_LIST_ID}",
+                                      {"email" => "#{email}"},
+                                      {'RCODE' => "#{@referral_code}", 'RCOUNT' => "0"})
           rescue => e
             flash.now[:alert] = 'There was a problem subscribing you to the list on MailChimp'
             return render :index
