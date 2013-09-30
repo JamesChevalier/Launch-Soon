@@ -2,6 +2,8 @@ require 'coveralls'
 Coveralls.wear!
 
 require 'simplecov'
+require 'simplecov-rcov-text'
+SimpleCov.formatter = SimpleCov::Formatter::RcovTextFormatter
 SimpleCov.start 'rails'
 
 require 'rubygems'
@@ -72,6 +74,7 @@ end
 Spork.each_run do
   # This code will be run each time you run your specs.
   FactoryGirl.reload
+  Zonebie.set_random_timezone
 end
 
 # --- Instructions ---
