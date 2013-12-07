@@ -36,9 +36,9 @@ class HomeController < ApplicationController
           unless @ref.blank? # Increment RCOUNT for referrer if referral code is present
             begin
               list_members     = mailchimp.lists.members("#{MAILCHIMP_LIST_ID}")
-              referring_member = list_members['data'].detect{ |member| member['merges']['RCODE'] == "#{@ref}" }
+              referring_member = list_members['data'].detect { |member| member['merges']['RCODE'] == "#{@ref}" }
               new_count        = referring_member['merges']['RCOUNT'] + 1
-              mailchimp.lists.update_member("#{MAILCHIMP_LIST_ID}", {"euid" => "#{referring_member['id']}"}, 'RCOUNT' => "1")
+              mailchimp.lists.update_member("#{MAILCHIMP_LIST_ID}", {'euid' => "#{referring_member['id']}"}, 'RCOUNT' => '1')
             rescue => e
               flash.now[:alert] = 'There was a problem updating the referral at MailChimp'
               return render :index
@@ -47,7 +47,7 @@ class HomeController < ApplicationController
 
           begin
             mailchimp.lists.subscribe("#{MAILCHIMP_LIST_ID}",
-                                      {"email" => "#{email}"},
+                                      {'email' => "#{email}"},
                                       {'RCODE' => "#{@referral_code}", 'RCOUNT' => "0"})
           rescue => e
             flash.now[:alert] = 'There was a problem subscribing you to the list on MailChimp'
