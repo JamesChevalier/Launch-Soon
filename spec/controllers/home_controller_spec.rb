@@ -11,7 +11,7 @@ describe HomeController do
   describe 'GET interested' do
     context 'with an email address' do
       it 'renders interested' do
-        get 'interested', {:email => Faker::Internet.email}
+        get 'interested', {email: Faker::Internet.email}
         response.should be_success
       end
     end
