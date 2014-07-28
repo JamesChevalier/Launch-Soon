@@ -1,16 +1,17 @@
 source 'https://rubygems.org'
+ruby '2.1.2'
 
 group :assets do
   gem 'coffee-rails',    '~> 3.2.1'
   gem 'compass-rails'
   gem 'sass-rails',      '~> 3.2.3'
   gem 'uglifier',        '>= 1.0.3'
-  gem 'zurb-foundation'
+  gem 'foundation-rails'
 end
 
 group :development, :test do
   gem 'capybara'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '2.99.0'
   gem 'factory_girl_rails'
   gem 'zonebie'
 end
@@ -41,4 +42,4 @@ end
 gem 'coveralls', require: false
 gem 'jquery-rails'
 gem 'mailchimp-api'
-gem 'rails', '3.2.14'
+gem 'rails', '3.2.19'
